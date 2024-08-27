@@ -1,0 +1,63 @@
+body
+{
+
+  background-color: rgb(34,34,34);
+}
+
+#SearchVideo
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: 3px solid rgba(126, 214, 154, 0.6);
+
+  border-radius: 12px;
+  
+  height: 60%;
+  width: 60%;
+}
+
+#Searcher
+{
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#Searcher input
+{
+  font-family: "Roboto", sans-serif;
+  width: 60%;
+  margin-right: 8px;
+  height: 24px;
+  background: rgba(93, 153, 112, 0.3);
+  border: 2px solid  rgba(93, 153, 112);
+  outline: none !important;
+  color:  rgba(93, 153, 112);
+}
+
+#Searcher input::placeholder
+{
+  color: rgba(93, 153, 112);
+}
+
+#Searcher button
+{
+  height: 33px;
+  border-radius: 4px;
+  background: rgba(93, 153, 112, 0.3);
+  border: 2px solid rgba(93,153,112);
+  color: rgba(93,153,112);
+}
+
+
+#Searcher h1
+{
+  font-family: "Roboto", sans-serif;
+  color: rgba(93, 153, 112);
+}
+
