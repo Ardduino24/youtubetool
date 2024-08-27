@@ -1,47 +1,52 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<meta http-equiv="Referrer-Policy" content="no-referrer" />
 		<meta name="referrer" content="no-referrer" />
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
-		<title>YouTube Unblocked</title>
+		<title>YT Tool</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+		<link rel="stylesheet"  href="style.css" />
 
 	</head>
 	<body>
     <div id="SearchVideo">
-      <input id="search" type="text" placeholder="Search" />
+     <div id="Searcher">
+			
+				<h1>Youtube Unblocker</h1>
+			 <br>
+			 <input id="search" type="text" placeholder="Youtube video link here..." />
       <button id="search-button"  onclick="Search()">
-        SEARCH
+        Search
       </button>
-
+		 </div>
       
     </div>
     <div id="container"></div>
+			<script>
+				function createVideoFrame(container, videoId) {
+						const frame = document.createElement('iframe');
+						frame.setAttribute("width", "1920");
+						frame.setAttribute("height", "1080");
+						frame.setAttribute("loading", "lazy");
+						frame.setAttribute("scrolling", "no");
+						frame.setAttribute("fetchpriority", "high");
+						frame.setAttribute("allowfullscreen", "true");
+						frame.setAttribute("referrerpolicy", "no-referrer");
+						frame.setAttribute("sandbox", "allow-scripts allow-same-origin");
 
-    <script>
-			function createVideoFrame(container, videoId) {
-				const frame = document.createElement("embed");
-				frame.setAttribute("type", "text/plain");
-				frame.setAttribute("width", "800");
-				frame.setAttribute("height", "600");
-				frame.setAttribute("loading", "lazy");
-				frame.setAttribute("scrolling", "no");
-				frame.setAttribute("fetchpriority", "high");
-				frame.setAttribute("allowfullscreen", "true");
-				frame.setAttribute("referrerpolicy", "no-referrer");
-				frame.setAttribute("sandbox", "allow-scripts allow-same-origin");
+						const url = new URL("https://www.youtube-nocookie.com/embed/" + videoId);
+						url.searchParams.set("autoplay", "1");
+						url.searchParams.set("controls", "1");
+						url.searchParams.set("rel", "0");
+						url.searchParams.set("color", "white");
+						frame.setAttribute("src", url.href);
 
-				const url = new URL("https://www.youtube-nocookie.com/embed/" + videoId);
-				url.searchParams.set("autoplay", "1");
-				url.searchParams.set("controls", "1");
-				url.searchParams.set("rel", "0");
-				url.searchParams.set("color", "white");
-				frame.setAttribute("src", url.href);
-
-				container.appendChild(frame);
-			}
+						container.appendChild(frame);
+				}
 
 			function extractYouTubeVideoId(url) {
 					const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
