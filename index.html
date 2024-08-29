@@ -13,11 +13,12 @@
 
 	</head>
 	<body>
+		<div id="particles-js">
     <div id="SearchVideo">
      <div id="Searcher">
 			
-				<h1>Youtube Unblocker</h1>
-			 <br>
+				<h1>Youtube Tool</h1>
+			 
 			 <input id="search" type="text" placeholder="Youtube video link here..." />
       <button id="search-button"  onclick="Search()">
         Search
@@ -25,50 +26,13 @@
 		 </div>
       
     </div>
-    <div id="container"></div>
-			<script>
-				function createVideoFrame(container, videoId) {
-						const frame = document.createElement('iframe');
-						frame.setAttribute("width", "850");
-						frame.setAttribute("height", "600");
-						frame.setAttribute("loading", "lazy");
-						frame.setAttribute("scrolling", "no");
-						frame.setAttribute("fetchpriority", "high");
-						frame.setAttribute("allowfullscreen", "true");
-						frame.setAttribute("referrerpolicy", "no-referrer");
-						frame.setAttribute("sandbox", "allow-scripts allow-same-origin");
-
-						const url = new URL("https://www.youtube-nocookie.com/embed/" + videoId);
-						url.searchParams.set("autoplay", "1");
-						url.searchParams.set("controls", "1");
-						url.searchParams.set("rel", "0");
-						url.searchParams.set("color", "white");
-						frame.setAttribute("src", url.href);
-
-						container.appendChild(frame);
-				}
-
-			function extractYouTubeVideoId(url) {
-					const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-					const match = url.match(regex);
-					return match ? match[1] : null;
-			}
-
-			function Search()
-			{
-				
-
-				let iD = extractYouTubeVideoId(document.getElementById("search").value)
-
-				if (iD) {
-					document.write("<div id='container'></div>");
-					createVideoFrame(document.getElementById("container"), iD);
-				}
-
-
-			}
-
-		</script>
-    
+			</div>
+    <div id="container" width="600" height="600" >
+		<iframe id="vid-container" width="700" height="500"></iframe>	
+		</div>
+	
+			<script src="./particles.js"></script>
+			<script src="app.js"></script>
+		<script src="./YtTool.js"></script>
 	</body>
 </html>
